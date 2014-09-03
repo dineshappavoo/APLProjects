@@ -30,6 +30,7 @@ void pointerExample()
     aPointer=bPointer;
     printf("%d\n",*aPointer);
     printf("%d\n",*bPointer);
+    printf("%d\n",a);
 
     
 }
