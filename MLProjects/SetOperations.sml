@@ -20,25 +20,25 @@ fun union(L,M)=disjointSet(L,M)@ disjointSet(M,L);\
 \
 union([1,2,3],[3,2,4,5]);\
 \
-fun setIntersect([],[])=[]|\
-	setIntersect([h],[])=[]|\
-	setIntersect([],[h])=[]|\
-	setIntersect(L,[])=[]|\
-	setIntersect([],L)=[]|\
-	setIntersect(h::t,L)=if contains(L,h)=true then h::setIntersect(t,L) else setIntersect(t,L);\
+fun intersection([],[])=[]|\
+	intersection([h],[])=[]|\
+	intersection([],[h])=[]|\
+	intersection(L,[])=[]|\
+	intersection([],L)=[]|\
+	intersection(h::t,L)=if contains(L,h)=true then h:: intersection(t,L) else intersection(t,L);\
 \
 \
-setIntersect([1,2,3],[3,2,4,5]);\
+intersection([1,2,3],[3,2,4,5]);\
 \
 \
-fun setDiff([],[])=[]|\
-	setDiff([h],[])=[h]|\
-	setDiff([],[h])=[]|\
-	setDiff(L,[])=L|\
-	setDiff([],M)=[]|\
-	setDiff(h::t,M)=if contains(M,h)=true then setDiff(t,M) else h::setDiff(t,M);\
+fun setdiff([],[])=[]|\
+	setdiff([h],[])=[h]|\
+	setdiff([],[h])=[]|\
+	setdiff(L,[])=L|\
+	setdiff([],M)=[]|\
+	setdiff(h::t,M)=if contains(M,h)=true then setdiff(t,M) else h::setdiff(t,M);\
 \
-setDiff([1,2,3],[3,2,4,5]);\
+setdiff([1,2,3],[3,2,4,5]);\
 \
 fun subset([],[])=true|\
 	subset([h],[])=false|\
@@ -55,14 +55,14 @@ subset([1,2,3],[1,3,2,4,5]);\
 (*Function to add element to the list*)\
 fun addElem(l,M)=(l::M);\
 \
-addElem(7,[1,3,2,4,5]);\
+(*addElem(7,[1,3,2,4,5]);*)\
 \
 (*Function to add one element to all lists in the lists of lists*)\
 fun pset(l,[[]])=[[l],[]]|\
 	pset(l,[M])=[[]]@[M]@[addElem(l,M)]|\
 	pset(l,P::Q)=([P]@[addElem(l,P)])@pset(l,Q);\
 \
-pset(2,[[],[3]]);\
+(*pset(2,[[],[3]]);*)\
 \
 (*Testing*)\
 [[11,12,13]]@[addElem(7,[1,3,2,4,5])];\
@@ -73,4 +73,5 @@ fun powerset([])=[[]]|\
 	powerset(h::t)=pset(h, powerset(t));\
 \
 powerset([1,2,3]);\
+\
 }
