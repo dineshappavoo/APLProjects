@@ -1,7 +1,7 @@
 program(fprog(S,B,E)) --> begin(S),body(B),end(E).
 begin(fbegin(begin)) --> [begin].
 end(fend(end)) --> [end].
-body(fbody(B)) --> (declarartion(B)).
+body(fbody(D)) --> declarartion(D).
 
 declarartion(fdecl(K,V,S,V_STT,E)) --> keyword(K),variable(V),sign(S),value_stt(V_STT),end_stt(E) | keyword(K), variable(V), end_stt(E) | variable(V), sign(S), value_stt(V_STT), end_stt(E).
 
