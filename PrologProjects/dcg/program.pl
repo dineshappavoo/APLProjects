@@ -37,5 +37,5 @@ opr(foperator(-)) --> [-].
 opr(foperator(*)) --> [*].
 opr(foperator(/)) --> [/].
 
-test(P) :- program(P,[begin, const, x, =, 8, ;, var, y, ;, var, z, ;, z, :=, 0, ;, end], []).
+test(P) :- program(P,[begin, const, x, =, 8, ;, end], []).
 
