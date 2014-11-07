@@ -19,9 +19,9 @@
 %                    PROGRAM TO GENERATE PARSE TREE
 %==========================================================================
 
-program(pprog(BLK)) --> k(BLK).
+program(pprog(BLK,DOT)) --> k(BLK), dot(DOT).
 
-k(pblock(S,DECL,E_STT,COND,E,DOT)) --> begin(S), d(DECL), endof_stt(E_STT), c(COND), end(E), dot(DOT).
+k(pblock(S,DECL,E_STT,COND,E)) --> begin(S), d(DECL), endof_stt(E_STT), c(COND), end(E).
 
 d(pdeclaration(K_WORD,VAR,SGN,NUM,D_D))  --> keyword(K_WORD), i(VAR), sign(SGN), n(NUM), d_dash(D_D) | keyword(K_WORD), i(VAR), d_dash(D_D).
 
